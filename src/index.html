@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperVerse | Academic Workspace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>PaperVerse</h2>
+            </div>
+            <nav class="paper-list" id="paperList">
+                </nav>
+            <div class="upload-section">
+                <a href="kg.html" class="explore-btn">
+                    <span>🔍 Explore</span>
+                </a>
+                <input type="file" id="pdfUploadInput" accept=".pdf" hidden>
+                <button id="uploadBtn" class="upload-btn">
+                    <span>＋ Upload PDF</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="viewer-area">
+            <header class="top-bar">
+                <h1 id="currentTitle">Select a Paper</h1>
+            </header>
+            <div class="pdf-container">
+                <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+                <div id="placeholder" class="placeholder">
+                    <p>Select a research paper from the sidebar to begin reading.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

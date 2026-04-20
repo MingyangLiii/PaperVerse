@@ -1,0 +1,3 @@
+fastapi>=0.68.0
+pymupdf>=1.23.0
+

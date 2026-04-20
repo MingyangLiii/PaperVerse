@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #f8f9fa;
+    --sidebar-color: #ffffff;
+    --accent-color: #1a73e8;
+    --text-main: #1f1f1f;
+    --text-sub: #5f6368;
+    --border-radius: 12px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Google Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-color);
+    border-right: 1px solid #dadce0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.gemini-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+    margin-bottom: 30px;
+}
+
+.gemini-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.4);
+}
+
+.paper-item {
+    padding: 12px 16px;
+    margin-bottom: 4px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--text-sub);
+    transition: background 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.paper-item:hover {
+    background-color: #f1f3f4;
+}
+
+.paper-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.upload-section {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.explore-btn {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border: 2px dashed #dadce0;
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Google Sans', sans-serif;
+    text-decoration: none;
+}
+
+.explore-btn:hover {
+    border-color: var(--accent-color);
+    background-color: #e8f0fe;
+}
+
+.upload-btn {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px dashed #dadce0;
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.upload-btn:hover {
+    border-color: var(--accent-color);
+    background-color: #e8f0fe;
+}
+
+/* Main Viewer Styling */
+.viewer-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 1px solid #dadce0;
+}
+
+.pdf-container {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#pdfViewer {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: none; /* Hidden until a paper is selected */
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    color: var(--text-sub);
+}
+
+

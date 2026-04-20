@@ -1,0 +1,1158 @@
+[
+  {
+    "name": "EverMemOS",
+    "type": "node",
+    "content": "A self-organizing memory operating system for LLMs that implements an engram-inspired lifecycle to transform fragmented episodic experiences into coherent, stable knowledge structures."
+  },
+  {
+    "name": "Episodic Trace Formation",
+    "type": "node",
+    "content": "Phase I of EverMemOS. Converts interaction history streams into atomic memory units called MemCells through a pipeline of Contextual Segmentation, Narrative Synthesis, and Structural Derivation."
+  },
+  {
+    "name": "Semantic Consolidation",
+    "type": "node",
+    "content": "Phase II of EverMemOS. Organizes MemCells into thematic, higher-level structures called MemScenes and updates a compact User Profile from aggregated evidence."
+  },
+  {
+    "name": "Reconstructive Recollection",
+    "type": "node",
+    "content": "Phase III of EverMemOS. Performs agentic, MemScene-guided retrieval modeled as an active reconstruction process, involving MemScene selection, filtering, and verification."
+  },
+  {
+    "name": "MemCell",
+    "type": "node",
+    "content": "The atomic memory unit in EverMemOS, defined as a tuple c = (E, F, P, M) representing Episode, Atomic Facts, Foresight, and Metadata."
+  },
+  {
+    "name": "MemScene",
+    "type": "node",
+    "content": "A thematic, higher-level semantic structure in EverMemOS formed by clustering related MemCells during the Semantic Consolidation phase."
+  },
+  {
+    "name": "User Profile",
+    "type": "node",
+    "content": "A compact representation in EverMemOS containing explicit facts and implicit user traits, updated online from scene summaries during Semantic Consolidation."
+  },
+  {
+    "name": "LoCoMo",
+    "type": "node",
+    "content": "A benchmark for evaluating memory systems, containing 1,540 questions over 10 ultra-long dialogues (~9K tokens each) spanning single-hop, multi-hop, and temporal questions."
+  },
+  {
+    "name": "LongMemEval",
+    "type": "node",
+    "content": "A benchmark for evaluating memory systems, with an S-setting of ~115k tokens per conversation and 500 questions requiring full-history parsing across core capabilities."
+  },
+  {
+    "name": "PersonaMem-v2",
+    "type": "node",
+    "content": "A dataset used for ablation studies, evaluating the effect of a consolidated user profile alongside episodic retrieval."
+  },
+  {
+    "name": "Memory Operating Systems",
+    "type": "node",
+    "content": "A category of memory systems for LLMs, including Nemori, MemoryOS, Mem0, Zep, and MemOS, which focus on storage optimization or fact maintenance."
+  },
+  {
+    "name": "Context Window Extension",
+    "type": "node",
+    "content": "A memory mechanism for LLMs involving techniques like sparse attention and recurrence to expand context, limited by the 'Lost-in-the-Middle' phenomenon."
+  },
+  {
+    "name": "Retrieval-Augmented and Parametric Memory",
+    "type": "node",
+    "content": "Memory mechanisms for LLMs including RAG (retrieval-augmented generation) and parametric approaches, which face issues with retrieval reliability and forgetting."
+  },
+  {
+    "name": "implements",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Episodic Trace Formation",
+    "content": "EverMemOS implements this as its first phase to create MemCells from raw interaction streams."
+  },
+  {
+    "name": "implements",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Semantic Consolidation",
+    "content": "EverMemOS implements this as its second phase to organize MemCells into MemScenes and update the User Profile."
+  },
+  {
+    "name": "implements",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Reconstructive Recollection",
+    "content": "EverMemOS implements this as its third phase for agentic, scene-guided memory retrieval."
+  },
+  {
+    "name": "produces",
+    "type": "edge",
+    "from": "Episodic Trace Formation",
+    "to": "MemCell",
+    "content": "The Episodic Trace Formation phase transforms interaction history into atomic MemCells."
+  },
+  {
+    "name": "organizes into",
+    "type": "edge",
+    "from": "Semantic Consolidation",
+    "to": "MemScene",
+    "content": "The Semantic Consolidation phase clusters related MemCells to form higher-level MemScenes."
+  },
+  {
+    "name": "updates",
+    "type": "edge",
+    "from": "Semantic Consolidation",
+    "to": "User Profile",
+    "content": "The Semantic Consolidation phase updates the compact User Profile from aggregated scene evidence."
+  },
+  {
+    "name": "guides",
+    "type": "edge",
+    "from": "MemScene",
+    "to": "Reconstructive Recollection",
+    "content": "MemScenes guide the agentic retrieval process in the Reconstructive Recollection phase."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "LoCoMo",
+    "content": "EverMemOS was experimentally evaluated on the LoCoMo benchmark, showing significant performance improvements."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "LongMemEval",
+    "content": "EverMemOS was experimentally evaluated on the LongMemEval benchmark, showing significant performance improvements."
+  },
+  {
+    "name": "used in ablation on",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "PersonaMem-v2",
+    "content": "An ablation study on PersonaMem-v2 evaluated the complementary benefit of the User Profile."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Memory Operating Systems",
+    "content": "Experiments show EverMemOS significantly outperforms state-of-the-art memory operating systems like Zep, Mem0, and MemOS."
+  },
+  {
+    "name": "addresses limitation of",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Context Window Extension",
+    "content": "EverMemOS is proposed to address limitations like 'Lost-in-the-Middle' and high cost associated with simply extending the context window."
+  },
+  {
+    "name": "addresses limitation of",
+    "type": "edge",
+    "from": "EverMemOS",
+    "to": "Retrieval-Augmented and Parametric Memory",
+    "content": "EverMemOS is proposed to address limitations like poor integration and lack of consolidation in flat, retrieval-based memory approaches."
+  },
+  {
+    "name": "MAGMA",
+    "type": "node",
+    "content": "Multi-Graph based Agentic Memory Architecture for AI Agents. A system designed to overcome limitations of existing Memory-Augmented Generation (MAG) approaches by representing memory across four orthogonal graphs and using policy-guided traversal for retrieval."
+  },
+  {
+    "name": "Memory-Augmented Generation (MAG)",
+    "type": "node",
+    "content": "A solution to LLM limitations, using an external memory to record interaction histories. Contrasts with static RAG by maintaining a time-variant memory that evolves via a feedback loop."
+  },
+  {
+    "name": "Large Language Models (LLMs)",
+    "type": "node",
+    "content": "Models with limitations in handling long-term context due to finite attention windows, attention dilution, positional encoding issues, and the 'lost-in-the-middle' phenomenon."
+  },
+  {
+    "name": "LoCoMo",
+    "type": "node",
+    "content": "A benchmark by Maharana et al., 2024 for assessing long-range temporal and causal retrieval in ultra-long conversations (average 9K tokens)."
+  },
+  {
+    "name": "LongMemEval",
+    "type": "node",
+    "content": "A benchmark by Wu et al., 2024 as a large-scale stress-test for evaluating scalability and memory retention stability over extended interactions (average context length exceeding 100K tokens)."
+  },
+  {
+    "name": "Data Structure Layer",
+    "type": "node",
+    "content": "A logical layer in MAGMA's architecture providing unified storage with a Vector Database and four Relation Graphs: Semantic, Temporal, Causal, and Entity. Formalized as a time-variant directed multigraph G_t = (N_t, E_t)."
+  },
+  {
+    "name": "Semantic Graph",
+    "type": "node",
+    "content": "One of the four relation graphs in MAGMA (E_sem). Contains undirected edges based on cosine similarity between event node embeddings."
+  },
+  {
+    "name": "Temporal Graph",
+    "type": "node",
+    "content": "One of the four relation graphs in MAGMA (E_temp). Contains strictly ordered pairs of event nodes based on timestamps."
+  },
+  {
+    "name": "Causal Graph",
+    "type": "node",
+    "content": "One of the four relation graphs in MAGMA (E_causal). Contains directed edges representing logical entailment between events, inferred during asynchronous consolidation."
+  },
+  {
+    "name": "Entity Graph",
+    "type": "node",
+    "content": "One of the four relation graphs in MAGMA (E_ent). Contains edges connecting event nodes to entity nodes."
+  },
+  {
+    "name": "Query Process",
+    "type": "node",
+    "content": "A logical layer in MAGMA's architecture for inference. Contains an Intent-Aware Router, Adaptive Topological Retrieval, and a Context Synthesizer. Performs policy-guided graph traversal for retrieval."
+  },
+  {
+    "name": "Adaptive Traversal Policy",
+    "type": "node",
+    "content": "A core component of MAGMA's Query Process. Guides context expansion from anchor nodes using Heuristic Beam Search, calculating a dynamic transition score that fuses structural alignment and semantic affinity."
+  },
+  {
+    "name": "Memory Evolution (Write/Update)",
+    "type": "node",
+    "content": "A dual-stream process in MAGMA for transitioning the memory graph from G_t to G_{t+1}. Decouples latency-sensitive ingestion from compute-intensive consolidation."
+  },
+  {
+    "name": "Fast Path (Synaptic Ingestion)",
+    "type": "node",
+    "content": "Part of MAGMA's Memory Evolution. Handles non-blocking operations on the critical interaction path: event segmentation, vector indexing, updating the temporal backbone, and queueing for the slow path."
+  },
+  {
+    "name": "Slow Path (Structural Consolidation)",
+    "type": "node",
+    "content": "Part of MAGMA's Memory Evolution. An asynchronous background worker that dequeues events and uses an LLM to infer latent causal and entity connections, densifying the graph structure."
+  },
+  {
+    "name": "A-MEM",
+    "type": "node",
+    "content": "A prior MAG scheme and baseline system for comparison. MAGMA outperforms it on benchmarks."
+  },
+  {
+    "name": "Nemori",
+    "type": "node",
+    "content": "A baseline MAG system for comparison. MAGMA outperforms it on benchmarks."
+  },
+  {
+    "name": "MemoryOS",
+    "type": "node",
+    "content": "A baseline agentic memory system for comparison. MAGMA outperforms it on benchmarks."
+  },
+  {
+    "name": "Full Context",
+    "type": "node",
+    "content": "A baseline where the entire conversation history is fed into the LLM's context window. MAGMA outperforms it on benchmarks."
+  },
+  {
+    "name": "Event Extraction Prompt",
+    "type": "node",
+    "content": "A prompt type in MAGMA's prompt library. Employs a strict JSON schema to capture entities, relationships, and temporal markers from events to ensure robustness."
+  },
+  {
+    "name": "Query-Adaptive QA Prompt",
+    "type": "node",
+    "content": "A prompt type in MAGMA's prompt library. Begins with a strict persona definition and appends dynamic reasoning instructions based on the Router's intent classification."
+  },
+  {
+    "name": "Evaluation Prompt (LLM-as-a-Judge)",
+    "type": "node",
+    "content": "A prompt type in MAGMA's prompt library. Used for semantic scoring, evaluating alignment between a generated response and ground truth on a continuous scale."
+  },
+  {
+    "name": "designed to overcome",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "Memory-Augmented Generation (MAG)",
+    "content": "MAGMA is designed to overcome the structural limitations of existing MAG approaches, such as monolithic memory stores and reliance on semantic similarity."
+  },
+  {
+    "name": "addresses limitations of",
+    "type": "edge",
+    "from": "Memory-Augmented Generation (MAG)",
+    "to": "Large Language Models (LLMs)",
+    "content": "MAG is introduced as a solution to the limitations of LLMs in handling long-term context and long-horizon reasoning."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "LoCoMo",
+    "content": "Comprehensive experiments evaluate MAGMA's reasoning effectiveness on the LoCoMo benchmark."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "LongMemEval",
+    "content": "Comprehensive experiments evaluate MAGMA's scalability and memory retention on the LongMemEval benchmark."
+  },
+  {
+    "name": "contains",
+    "type": "edge",
+    "from": "Data Structure Layer",
+    "to": "Semantic Graph",
+    "content": "The Data Structure Layer stores memory items across four orthogonal graphs, including the Semantic Graph."
+  },
+  {
+    "name": "contains",
+    "type": "edge",
+    "from": "Data Structure Layer",
+    "to": "Temporal Graph",
+    "content": "The Data Structure Layer stores memory items across four orthogonal graphs, including the Temporal Graph."
+  },
+  {
+    "name": "contains",
+    "type": "edge",
+    "from": "Data Structure Layer",
+    "to": "Causal Graph",
+    "content": "The Data Structure Layer stores memory items across four orthogonal graphs, including the Causal Graph."
+  },
+  {
+    "name": "contains",
+    "type": "edge",
+    "from": "Data Structure Layer",
+    "to": "Entity Graph",
+    "content": "The Data Structure Layer stores memory items across four orthogonal graphs, including the Entity Graph."
+  },
+  {
+    "name": "performs",
+    "type": "edge",
+    "from": "Query Process",
+    "to": "Adaptive Traversal Policy",
+    "content": "The Query Process orchestrates retrieval via a policy-guided graph traversal, which is executed by the Adaptive Traversal Policy."
+  },
+  {
+    "name": "traverses",
+    "type": "edge",
+    "from": "Adaptive Traversal Policy",
+    "to": "Data Structure Layer",
+    "content": "The Adaptive Traversal Policy performs heuristic beam search to navigate and retrieve information from the multi-graph data structure."
+  },
+  {
+    "name": "comprises",
+    "type": "edge",
+    "from": "Memory Evolution (Write/Update)",
+    "to": "Fast Path (Synaptic Ingestion)",
+    "content": "The Memory Evolution process is a dual-stream pipeline, with the Fast Path handling immediate, latency-sensitive ingestion."
+  },
+  {
+    "name": "comprises",
+    "type": "edge",
+    "from": "Memory Evolution (Write/Update)",
+    "to": "Slow Path (Structural Consolidation)",
+    "content": "The Memory Evolution process is a dual-stream pipeline, with the Slow Path handling asynchronous, compute-intensive consolidation."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "A-MEM",
+    "content": "Experimental results on benchmarks show MAGMA achieves higher accuracy and lower latency than the A-MEM baseline."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "Nemori",
+    "content": "Experimental results on benchmarks show MAGMA achieves higher accuracy and lower latency than the Nemori baseline."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "MemoryOS",
+    "content": "Experimental results on benchmarks show MAGMA achieves higher accuracy than the MemoryOS baseline."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "MAGMA",
+    "to": "Full Context",
+    "content": "Experimental results on benchmarks show MAGMA achieves higher accuracy with drastically reduced token usage compared to the Full Context baseline."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Slow Path (Structural Consolidation)",
+    "to": "Event Extraction Prompt",
+    "content": "The Slow Path uses an LLM prompted by the Event Extraction Prompt to infer latent causal and entity connections from dequeued events."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Query Process",
+    "to": "Query-Adaptive QA Prompt",
+    "content": "The Query Process uses the Query-Adaptive QA Prompt to generate responses, injecting dynamic instructions based on the Router's intent classification."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Experiments",
+    "to": "Evaluation Prompt (LLM-as-a-Judge)",
+    "content": "The experimental evaluation uses the LLM-as-a-Judge prompt for semantic scoring to compare MAGMA's outputs against ground truth."
+  },
+  {
+    "name": "CompassMem",
+    "type": "node",
+    "content": "An event-centric memory framework for LLM-based agents that organizes memory as a structured hierarchical Event Graph to actively guide searching and reasoning."
+  },
+  {
+    "name": "Event Graph",
+    "type": "node",
+    "content": "A structured hierarchical memory representation where experiences are stored as coherent event units connected by explicit logical relations."
+  },
+  {
+    "name": "Event Segmentation Theory (EST)",
+    "type": "node",
+    "content": "A cognitive science framework explaining how humans segment continuous perceptual experience into meaningful event units, which inspires CompassMem's memory segmentation."
+  },
+  {
+    "name": "Incremental Hierarchical Memory Construction",
+    "type": "node",
+    "content": "The process of building the Event Graph, involving event segmentation, relation extraction, and incremental graph updates via Node Fusion & Expansion and Topic Evolution."
+  },
+  {
+    "name": "Event Segmentation",
+    "type": "node",
+    "content": "Process where an LLM segments an input stream into coherent events, each defined by observation span, temporal info, semantic summary, and participants."
+  },
+  {
+    "name": "Relation Extraction",
+    "type": "node",
+    "content": "Process where an LLM extracts logical relations (e.g., causal, temporal) between events from an open-ended predicate set."
+  },
+  {
+    "name": "Topic Evolution",
+    "type": "node",
+    "content": "A layer over accumulated events where topics represent semantic clusters, initialized via K-means and updated with new events or periodic re-clustering."
+  },
+  {
+    "name": "Active Multi-Path Memory Search",
+    "type": "node",
+    "content": "The inference process where agents actively navigate the Event Graph using a Planner, multiple Explorers, and a Responder to gather evidence for complex queries."
+  },
+  {
+    "name": "Planner",
+    "type": "node",
+    "content": "An LLM-based agent that decomposes a query into subgoals and performs gap-aware refinement to generate refined queries if search fails."
+  },
+  {
+    "name": "Explorer",
+    "type": "node",
+    "content": "Multiple LLM-based agents that perform localization and navigate the Event Graph by choosing actions (SKIP, EXPAND, ANSWER) at each node based on query and context."
+  },
+  {
+    "name": "Responder",
+    "type": "node",
+    "content": "An LLM-based agent invoked when search is complete to generate the final output from the distilled evidence set."
+  },
+  {
+    "name": "LoCoMo",
+    "type": "node",
+    "content": "A benchmark for conversational question answering used to evaluate memory frameworks like CompassMem."
+  },
+  {
+    "name": "NarrativeQA",
+    "type": "node",
+    "content": "A benchmark for narrative understanding used to evaluate memory frameworks like CompassMem."
+  },
+  {
+    "name": "Mem0",
+    "type": "node",
+    "content": "A baseline memory framework for agents used for comparison in experiments."
+  },
+  {
+    "name": "MemoryOS",
+    "type": "node",
+    "content": "A baseline memory framework for agents used for comparison in experiments."
+  },
+  {
+    "name": "A-Mem",
+    "type": "node",
+    "content": "A baseline memory framework using structured approaches, used for comparison in experiments."
+  },
+  {
+    "name": "CAM",
+    "type": "node",
+    "content": "A baseline memory framework for agents used for comparison in experiments."
+  },
+  {
+    "name": "HippoRAG",
+    "type": "node",
+    "content": "A baseline memory framework for agents used for comparison in experiments."
+  },
+  {
+    "name": "GPT-4o-mini",
+    "type": "node",
+    "content": "A backbone language model used in experiments for CompassMem and baselines."
+  },
+  {
+    "name": "Qwen2.5-14B-Instruct",
+    "type": "node",
+    "content": "A backbone language model used in experiments for CompassMem and baselines."
+  },
+  {
+    "name": "BGE-M3",
+    "type": "node",
+    "content": "An embedding model used for semantic similarity in the CompassMem framework."
+  },
+  {
+    "name": "is inspired by",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Event Segmentation Theory (EST)",
+    "content": "The design of CompassMem's event-centric memory framework is inspired by the cognitive science theory of Event Segmentation."
+  },
+  {
+    "name": "organizes memory as",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Event Graph",
+    "content": "The core idea of CompassMem is to organize agent memory as a structured hierarchical Event Graph."
+  },
+  {
+    "name": "performs",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Incremental Hierarchical Memory Construction",
+    "content": "CompassMem constructs its memory through an incremental process of event segmentation and graph building."
+  },
+  {
+    "name": "enables",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Active Multi-Path Memory Search",
+    "content": "During inference, CompassMem enables an active, logic-aware search process over the constructed Event Graph."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Incremental Hierarchical Memory Construction",
+    "to": "Event Segmentation",
+    "content": "The memory construction process involves segmenting the input stream into coherent events."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Incremental Hierarchical Memory Construction",
+    "to": "Relation Extraction",
+    "content": "The memory construction process involves extracting logical relations between the segmented events."
+  },
+  {
+    "name": "includes",
+    "type": "edge",
+    "from": "Incremental Hierarchical Memory Construction",
+    "to": "Topic Evolution",
+    "content": "The memory construction process includes maintaining a topic layer over events for semantic clustering."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Active Multi-Path Memory Search",
+    "to": "Planner",
+    "content": "The search process uses a Planner agent to decompose queries and refine goals."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Active Multi-Path Memory Search",
+    "to": "Explorer",
+    "content": "The search process uses multiple Explorer agents to navigate the graph in parallel."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Active Multi-Path Memory Search",
+    "to": "Responder",
+    "content": "The search process uses a Responder agent to synthesize the final answer from collected evidence."
+  },
+  {
+    "name": "is evaluated on",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "LoCoMo",
+    "content": "The performance of CompassMem is tested on the LoCoMo conversational QA benchmark."
+  },
+  {
+    "name": "is evaluated on",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "NarrativeQA",
+    "content": "The performance of CompassMem is tested on the NarrativeQA narrative understanding benchmark."
+  },
+  {
+    "name": "is compared to",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Mem0",
+    "content": "Experimental results compare CompassMem's performance against the Mem0 baseline."
+  },
+  {
+    "name": "is compared to",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "MemoryOS",
+    "content": "Experimental results compare CompassMem's performance against the MemoryOS baseline."
+  },
+  {
+    "name": "is compared to",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "A-Mem",
+    "content": "Experimental results compare CompassMem's performance against the A-Mem baseline."
+  },
+  {
+    "name": "is compared to",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "CAM",
+    "content": "Experimental results compare CompassMem's performance against the CAM baseline."
+  },
+  {
+    "name": "is compared to",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "HippoRAG",
+    "content": "Experimental results compare CompassMem's performance against the HippoRAG baseline."
+  },
+  {
+    "name": "uses model",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "GPT-4o-mini",
+    "content": "Experiments for CompassMem are run using GPT-4o-mini as a backbone language model."
+  },
+  {
+    "name": "uses model",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "Qwen2.5-14B-Instruct",
+    "content": "Experiments for CompassMem are run using Qwen2.5-14B-Instruct as a backbone language model."
+  },
+  {
+    "name": "uses embeddings from",
+    "type": "edge",
+    "from": "CompassMem",
+    "to": "BGE-M3",
+    "content": "CompassMem uses the BGE-M3 model for generating embeddings to compute semantic similarity."
+  },
+  {
+    "name": "Agent Memory System",
+    "type": "node",
+    "content": "An evolving memory state M_t defined by three conceptual operators: Memory Formation (F), Memory Evolution (E), and Memory Retrieval (R). It is the internal substrate for learning, adaptation, and autonomy in LLM-driven agents."
+  },
+  {
+    "name": "Memory Formation (F)",
+    "type": "node",
+    "content": "A conceptual operator that selectively transforms informational artifacts (e.g., tool outputs, reasoning traces) into memory candidates."
+  },
+  {
+    "name": "Memory Evolution (E)",
+    "type": "node",
+    "content": "A conceptual operator that integrates memory candidates by consolidating redundant entries, resolving conflicts, discarding low-utility information, or restructuring."
+  },
+  {
+    "name": "Memory Retrieval (R)",
+    "type": "node",
+    "content": "A conceptual operator that constructs a task-aware query to retrieve a formatted memory signal m_i^t for the LLM policy."
+  },
+  {
+    "name": "LLM Memory",
+    "type": "node",
+    "content": "Mechanisms that directly modify the model's internal state (e.g., architectural changes for long context, KV cache management) to expand representational capacity. Lacks cross-task persistence and deliberate memory operations."
+  },
+  {
+    "name": "Retrieval-Augmented Generation (RAG)",
+    "type": "node",
+    "content": "A family of techniques for retrieving external information to augment LLM generation. Includes Modular RAG (static pipeline), Graph RAG (graph-structured knowledge), and Agentic RAG (autonomous retrieval decisions)."
+  },
+  {
+    "name": "Context Engineering",
+    "type": "node",
+    "content": "A resource management methodology optimizing the information payload within the LLM's context window. Focuses on structural organization, tool integration, and communication protocols."
+  },
+  {
+    "name": "Token-level Memory",
+    "type": "node",
+    "content": "A memory form that is symbolic, addressable, and transparent. Suitable for multi-turn chatbots, personalized agents, and high-stake domains requiring explicit reasoning and accountability."
+  },
+  {
+    "name": "Flat Memory (1D)",
+    "type": "node",
+    "content": "A topology-free memory form (e.g., vector store) offering simplicity and scalability for broad recall and episodic accumulation, but lacks explicit relational organization."
+  },
+  {
+    "name": "Planar Memory (2D)",
+    "type": "node",
+    "content": "A graph-based memory form that establishes links between nodes to leverage collective synergies and support relational traversal, but can lack hierarchy and be costly to construct."
+  },
+  {
+    "name": "Hierarchical Memory (3D)",
+    "type": "node",
+    "content": "A memory form organizing information across layers with inter-level connections. Includes 'Pyramid' (coarse-to-fine querying) and 'Multi-Layer' (layered specialization) subcategories."
+  },
+  {
+    "name": "Parametric Memory",
+    "type": "node",
+    "content": "A memory form where knowledge is stored implicitly within model parameters. Characterized as implicit, abstract, and generalizable, but with slower updates and risk of catastrophic forgetting."
+  },
+  {
+    "name": "Latent Memory",
+    "type": "node",
+    "content": "A memory form carried implicitly in the model's internal representations (e.g., KV cache, latent embeddings). Offers a balance of flexibility and efficiency with high expressive capacity."
+  },
+  {
+    "name": "Experiential Memory",
+    "type": "node",
+    "content": "Memory that stores knowledge derived from agent experiences. Categorized into Case-based (raw records), Strategy-based (transferable knowledge), and Skill-based (procedural capacity)."
+  },
+  {
+    "name": "Factual Memory",
+    "type": "node",
+    "content": "Memory that stores verifiable facts. Divided into User factual memory (user identity, preferences) and Environment factual memory (external world states, documents)."
+  },
+  {
+    "name": "Working Memory",
+    "type": "node",
+    "content": "Memory that functions as a computational scratchpad for immediate task state. Categorized into Single-turn (input condensation) and Multi-turn (continuous state maintenance)."
+  },
+  {
+    "name": "Semantic Summarization",
+    "type": "node",
+    "content": "A memory formation method that performs lossy compression to distill the global semantic gist from interaction logs, prioritizing coherence over local precision."
+  },
+  {
+    "name": "Knowledge Distillation",
+    "type": "node",
+    "content": "A memory formation method that transforms raw interactions into declarative knowledge (factual memory) or extracts strategies from historical trajectories (experiential memory)."
+  },
+  {
+    "name": "Structured Construction",
+    "type": "node",
+    "content": "A memory formation method that transforms data into organized topological representations (e.g., graphs, hierarchies) to enhance interpretability and retrieval efficiency."
+  },
+  {
+    "name": "Memory Consolidation",
+    "type": "node",
+    "content": "A memory evolution operation that transforms short-term traces into structured, generalizable long-term knowledge by identifying semantic relationships and integrating memories."
+  },
+  {
+    "name": "Forgetting Mechanisms",
+    "type": "node",
+    "content": "Memory evolution operations to discard information, including frequency-based (e.g., LFU, LRU) and importance-driven policies to maintain timeliness and relevance."
+  },
+  {
+    "name": "Query Construction",
+    "type": "node",
+    "content": "A memory retrieval stage involving translating user utterance for memory storage, including paradigms like Query Decomposition and Query Rewriting."
+  },
+  {
+    "name": "Retrieval Strategies",
+    "type": "node",
+    "content": "The bridge between queries and memory, determining retrieval efficiency and quality, ranging from traditional sparse retrieval to modern dense semantic retrieval."
+  },
+  {
+    "name": "Generative Memory Paradigm",
+    "type": "node",
+    "content": "An emerging paradigm where agents actively synthesize new memory representations (e.g., latent tokens) by integrating and reorganizing information, moving beyond static retrieval."
+  },
+  {
+    "name": "Reinforcement Learning (RL) for Memory",
+    "type": "node",
+    "content": "The use of RL to internalize memory management abilities, progressing from RL-free systems to RL-assisted and fully RL-driven memory control."
+  },
+  {
+    "name": "Trustworthy Memory",
+    "type": "node",
+    "content": "Concerns and techniques for ensuring memory system trustworthiness, addressing privacy leakage, access control, verifiable forgetting, and explainability."
+  },
+  {
+    "name": "Multi-Agent Shared Memory",
+    "type": "node",
+    "content": "Memory structures shared among multiple agents to establish a common factual foundation, reduce redundancy, and improve coordination."
+  },
+  {
+    "name": "defines",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Memory Formation (F)",
+    "content": "The Agent Memory System is formally defined by the Memory Formation operator."
+  },
+  {
+    "name": "defines",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Memory Evolution (E)",
+    "content": "The Agent Memory System is formally defined by the Memory Evolution operator."
+  },
+  {
+    "name": "defines",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Memory Retrieval (R)",
+    "content": "The Agent Memory System is formally defined by the Memory Retrieval operator."
+  },
+  {
+    "name": "contrasted with",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "LLM Memory",
+    "content": "Agent Memory subsumes historical LLM memory systems but is distinct from mechanisms that only modify internal model state without cross-task persistence."
+  },
+  {
+    "name": "contrasted with",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Retrieval-Augmented Generation (RAG)",
+    "content": "Agent memory maintains an internal, persistent, and self-evolving memory base across tasks, whereas RAG often retrieves from a more static external base."
+  },
+  {
+    "name": "contrasted with",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Context Engineering",
+    "content": "Agent memory encompasses a broader cognitive scope for learning and adaptation, while context engineering focuses on external scaffolding for perception and action under constraints."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Token-level Memory",
+    "to": "Agent Memory System",
+    "content": "Token-level memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Flat Memory (1D)",
+    "to": "Agent Memory System",
+    "content": "Flat memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Planar Memory (2D)",
+    "to": "Agent Memory System",
+    "content": "Planar (graph) memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Hierarchical Memory (3D)",
+    "to": "Agent Memory System",
+    "content": "Hierarchical memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Parametric Memory",
+    "to": "Agent Memory System",
+    "content": "Parametric memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "is a form of",
+    "type": "edge",
+    "from": "Latent Memory",
+    "to": "Agent Memory System",
+    "content": "Latent memory is one possible implementation form for carrying agent memory."
+  },
+  {
+    "name": "subsumes",
+    "type": "edge",
+    "from": "Experiential Memory",
+    "to": "Agent Memory System",
+    "content": "Experiential memory is a functional category of knowledge stored within an agent memory system."
+  },
+  {
+    "name": "subsumes",
+    "type": "edge",
+    "from": "Factual Memory",
+    "to": "Agent Memory System",
+    "content": "Factual memory is a functional category of knowledge stored within an agent memory system."
+  },
+  {
+    "name": "subsumes",
+    "type": "edge",
+    "from": "Working Memory",
+    "to": "Agent Memory System",
+    "content": "Working memory is a functional category for immediate task state within an agent memory system."
+  },
+  {
+    "name": "is a method for",
+    "type": "edge",
+    "from": "Semantic Summarization",
+    "to": "Memory Formation (F)",
+    "content": "Semantic summarization is a technique used to implement the Memory Formation operator."
+  },
+  {
+    "name": "is a method for",
+    "type": "edge",
+    "from": "Knowledge Distillation",
+    "to": "Memory Formation (F)",
+    "content": "Knowledge distillation is a technique used to implement the Memory Formation operator."
+  },
+  {
+    "name": "is a method for",
+    "type": "edge",
+    "from": "Structured Construction",
+    "to": "Memory Formation (F)",
+    "content": "Structured construction is a technique used to implement the Memory Formation operator."
+  },
+  {
+    "name": "is an operation of",
+    "type": "edge",
+    "from": "Memory Consolidation",
+    "to": "Memory Evolution (E)",
+    "content": "Memory consolidation is a key operation performed by the Memory Evolution operator."
+  },
+  {
+    "name": "is an operation of",
+    "type": "edge",
+    "from": "Forgetting Mechanisms",
+    "to": "Memory Evolution (E)",
+    "content": "Forgetting is a key operation performed by the Memory Evolution operator."
+  },
+  {
+    "name": "is a stage of",
+    "type": "edge",
+    "from": "Query Construction",
+    "to": "Memory Retrieval (R)",
+    "content": "Query construction is a stage within the broader Memory Retrieval process."
+  },
+  {
+    "name": "enables",
+    "type": "edge",
+    "from": "Retrieval Strategies",
+    "to": "Memory Retrieval (R)",
+    "content": "Retrieval strategies are employed to execute the Memory Retrieval operation."
+  },
+  {
+    "name": "paradigm shift towards",
+    "type": "edge",
+    "from": "Agent Memory System",
+    "to": "Generative Memory Paradigm",
+    "content": "A future direction for agent memory is a shift from retrieval-centric to generative memory paradigms."
+  },
+  {
+    "name": "enables",
+    "type": "edge",
+    "from": "Reinforcement Learning (RL) for Memory",
+    "to": "Automated Memory Management",
+    "content": "Reinforcement learning is a key approach for enabling agents to autonomously manage their memory systems."
+  },
+  {
+    "name": "addresses challenges of",
+    "type": "edge",
+    "from": "Trustworthy Memory",
+    "to": "Agent Memory System",
+    "content": "Trustworthy memory research addresses critical challenges like privacy and safety as memory systems become foundational."
+  },
+  {
+    "name": "is a structure for",
+    "type": "edge",
+    "from": "Multi-Agent Shared Memory",
+    "to": "Agent Memory System",
+    "content": "Shared memory is a specific architectural structure for memory in multi-agent system contexts."
+  },
+  {
+    "name": "LLM-as-a-Judge",
+    "type": "node",
+    "content": "The use of commercial LLMs as surrogates for human evaluators in pairwise evaluation for alignment tasks."
+  },
+  {
+    "name": "Pairwise Evaluation",
+    "type": "node",
+    "content": "A task where a judge (human or LLM) selects a preferred response from a pair for a given prompt."
+  },
+  {
+    "name": "LLM Judge",
+    "type": "node",
+    "content": "An evaluator defined as a combination of a specific LLM and a prompt template."
+  },
+  {
+    "name": "Self-Inconsistency",
+    "type": "node",
+    "content": "Non-deterministic behavior in LLM judges attributed to decoding strategies like top-p, top-k, and temperature."
+  },
+  {
+    "name": "Flipping Noise",
+    "type": "node",
+    "content": "A term introduced to quantify LLM-Judge Self-Inconsistency, modeled as a probability q of flipping a choice."
+  },
+  {
+    "name": "Position Bias (PB)",
+    "type": "node",
+    "content": "A systematic preference for a response based on its position (e.g., first or second) in the pair."
+  },
+  {
+    "name": "Length Bias (LB)",
+    "type": "node",
+    "content": "A systematic preference for longer responses over shorter ones."
+  },
+  {
+    "name": "Accuracy (Accboth)",
+    "type": "node",
+    "content": "An evaluation metric that relies only on cases unaffected by position bias, considered superior for mitigating PB's influence in LB computation."
+  },
+  {
+    "name": "Accuracy (Accrandom)",
+    "type": "node",
+    "content": "An alternative accuracy metric where performance gaps between LLM judges shrink, indicating it is a less effective metric."
+  },
+  {
+    "name": "Evaluation Framework",
+    "type": "node",
+    "content": "A modular system with four components: Data Sampler, LLM Judges, Metrics Computation, and Metrics Visualization."
+  },
+  {
+    "name": "TL;DR Summarization Dataset",
+    "type": "node",
+    "content": "A dataset used for experiments, containing Reddit posts and human-preferred/rejected summaries."
+  },
+  {
+    "name": "HH-RLHF-Helpfulness Dataset",
+    "type": "node",
+    "content": "A dataset used for experiments, containing single-turn and multi-turn conversations with human-evaluated responses."
+  },
+  {
+    "name": "GPT-4o",
+    "type": "node",
+    "content": "A commercial LLM used as a judge in the experiments, selected over GPT-4 based on cost and preliminary performance."
+  },
+  {
+    "name": "GPT-4o-mini",
+    "type": "node",
+    "content": "A commercial LLM used as a judge in the experiments."
+  },
+  {
+    "name": "GPT-3.5-turbo",
+    "type": "node",
+    "content": "A commercial LLM used as a judge in the experiments, noted to be more temperature-sensitive."
+  },
+  {
+    "name": "Prompt Template",
+    "type": "node",
+    "content": "Specific instructions and structure given to an LLM judge to perform the evaluation task."
+  },
+  {
+    "name": "Temperature",
+    "type": "node",
+    "content": "A parameter controlling randomness in LLM generation; investigated for its impact on self-consistency and accuracy."
+  },
+  {
+    "name": "Self-Consistent Rate (SCR)",
+    "type": "node",
+    "content": "A metric defined as (1 - flipping probability q), measuring the consistency of an LLM judge's repeated judgments."
+  },
+  {
+    "name": "exhibits",
+    "type": "edge",
+    "from": "LLM-as-a-Judge",
+    "to": "Self-Inconsistency",
+    "content": "LLM judges are observed to have biases and inconsistencies, necessitating systematic investigation."
+  },
+  {
+    "name": "quantified by",
+    "type": "edge",
+    "from": "Self-Inconsistency",
+    "to": "Flipping Noise",
+    "content": "Self-inconsistency is attributed to non-deterministic decoding and introduced as 'flipping noise' for quantification."
+  },
+  {
+    "name": "investigates",
+    "type": "edge",
+    "from": "Evaluation Framework",
+    "to": "Position Bias (PB)",
+    "content": "The framework's Metrics Computation component calculates position bias."
+  },
+  {
+    "name": "investigates",
+    "type": "edge",
+    "from": "Evaluation Framework",
+    "to": "Length Bias (LB)",
+    "content": "The framework's Metrics Computation component calculates length bias."
+  },
+  {
+    "name": "mitigates influence of",
+    "type": "edge",
+    "from": "Accuracy (Accboth)",
+    "to": "Position Bias (PB)",
+    "content": "Using Accboth is argued to be superior to Accrandom for mitigating position bias's influence in length bias computation."
+  },
+  {
+    "name": "entangled with",
+    "type": "edge",
+    "from": "Length Bias (LB)",
+    "to": "Position Bias (PB)",
+    "content": "LB measurement is proven to be entangled with PB when PB != 0, showing LBcr != LBrc."
+  },
+  {
+    "name": "uses",
+    "type": "edge",
+    "from": "Evaluation Framework",
+    "to": "Data Sampler",
+    "content": "The framework's first component uses stratified sampling to create dataset splits."
+  },
+  {
+    "name": "composed of",
+    "type": "edge",
+    "from": "LLM Judge",
+    "to": "Prompt Template",
+    "content": "An LLM judge is defined as a combination of a specific LLM and a prompt template."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "GPT-4o",
+    "to": "TL;DR Summarization Dataset",
+    "content": "GPT-4o was used as a judge in experiments on the TL;DR dataset."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "GPT-4o",
+    "to": "HH-RLHF-Helpfulness Dataset",
+    "content": "GPT-4o was used as a judge in experiments on the HH-RLHF-Helpfulness dataset."
+  },
+  {
+    "name": "impacts",
+    "type": "edge",
+    "from": "Temperature",
+    "to": "Self-Consistent Rate (SCR)",
+    "content": "Higher temperatures lower self-consistency (SCR), though accuracy is largely unaffected."
+  },
+  {
+    "name": "selected for experiments",
+    "type": "edge",
+    "from": "Temperature",
+    "to": "Evaluation Framework",
+    "content": "Temperature 0.1 was selected for all experiments based on initial findings."
+  },
+  {
+    "name": "shows correlation with",
+    "type": "edge",
+    "from": "Accuracy (Accboth)",
+    "to": "Position Bias (PB)",
+    "content": "LLM judges with higher Accboth show lower absolute position bias (|PB|), suggesting a negative correlation."
+  },
+  {
+    "name": "exhibits",
+    "type": "edge",
+    "from": "LLM Judge",
+    "to": "Length Bias (LB)",
+    "content": "All tested LLM judges exhibit a stronger preference for longer responses compared to human judges."
+  },
+  {
+    "name": "measured by",
+    "type": "edge",
+    "from": "Self-Inconsistency",
+    "to": "Self-Consistent Rate (SCR)",
+    "content": "Self-consistency is measured by the Self-Consistent Rate, defined as 1 - flipping probability q."
+  }
+]
