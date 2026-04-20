@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 import os
 import json
 import random
@@ -9,6 +10,7 @@ import asyncio
 
 
 from upload_script import handle_upload
+from agent.llm import LLM
 
 app = FastAPI()
 
@@ -83,10 +85,36 @@ async def get_graph():
 
     return data
 
+
 @app.get("/kg")
 async def get_kg_page():
     """Serve the knowledge graph visualization page."""
     return FileResponse(os.path.join(os.path.dirname(__file__), "kg.html"))
+
+# Chat API
+class ChatRequest(BaseModel):
+    message: str
+    paper_name: str = "none"
+
+
+llm_client = LLM()
+
+@app.post("/api/chat")
+async def chat(request: ChatRequest):
+    """Send a message to the LLM with optional paper context."""
+    try:
+        system_prompt = "You are an academic research assistant. Help users understand research papers."
+        if request.paper_name != "none":
+            system_prompt += f" The user is currently reading the paper: {request.paper_name}"
+
+        response = llm_client.chat([
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": request.message}
+        ])
+
+        return {"response": response}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # Mount the 'files' directory to serve the PDFs as static assets
 # This makes them accessible at http://localhost:8000/static/filename.pdf

@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaperVerse | Academic Workspace</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="app-container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="logo">
                 <h2>PaperVerse</h2>
             </div>
             <nav class="paper-list" id="paperList">
                 </nav>
             <div class="upload-section">
+                <button id="chatBtn" class="chat-btn">
+                    <span>💬 Chat</span>
+                </button>
                 <a href="kg.html" class="explore-btn">
                     <span>🔍 Explore</span>
                 </a>
@@ -40,6 +43,20 @@
         </main>
     </div>
 
+    <!-- Chat Panel -->
+    <div id="chatPanel" class="chat-panel" style="display: none;">
+        <div class="chat-header">
+            <h2 class="chat-title">Query Space</h2>
+            <button id="chatBackBtn" class="chat-back-btn">Back</button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+            <button id="chatSendBtn" class="chat-send-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

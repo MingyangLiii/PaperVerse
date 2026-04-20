@@ -73,3 +73,69 @@ pdfUploadInput.addEventListener('change', async (e) => {
         alert('Upload failed. Is the backend running?');
     }
 });
+
+// Chat Panel functionality
+const chatBtn = document.getElementById('chatBtn');
+const chatPanel = document.getElementById('chatPanel');
+const chatBackBtn = document.getElementById('chatBackBtn');
+const chatInput = document.getElementById('chatInput');
+const chatSendBtn = document.getElementById('chatSendBtn');
+const chatMessages = document.getElementById('chatMessages');
+
+chatBtn.addEventListener('click', () => {
+    chatPanel.style.display = 'flex';
+});
+
+chatBackBtn.addEventListener('click', () => {
+    chatPanel.style.display = 'none';
+});
+
+async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Get current selected paper name
+    const displayName = currentTitle.textContent === "Select a Paper" ? "none" : currentTitle.textContent + ".pdf";
+
+    // Add user message (rendered as markdown)
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-message';
+    msgDiv.innerHTML = `<strong>You:</strong> <div class="md-content">${marked.parse(message)}</div>`;
+    chatMessages.appendChild(msgDiv);
+
+    chatInput.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // Send to backend
+    try {
+        const response = await fetch(`${API_URL}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message, paper_name: displayName })
+        });
+        const data = await response.json();
+
+        const replyDiv = document.createElement('div');
+        replyDiv.className = 'chat-message';
+        replyDiv.innerHTML = `<strong>Assistant:</strong> <div class="md-content">${marked.parse(data.response)}</div>`;
+        chatMessages.appendChild(replyDiv);
+        // Add empty line separator after each QA pair
+        const sep = document.createElement('div');
+        sep.className = 'chat-separator';
+        chatMessages.appendChild(sep);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+        console.error("Chat error:", error);
+        const errDiv = document.createElement('div');
+        errDiv.className = 'chat-message';
+        errDiv.style.color = 'red';
+        errDiv.innerHTML = `<strong>Error:</strong> Failed to get response. Is the backend running?`;
+        chatMessages.appendChild(errDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
+
+chatSendBtn.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});

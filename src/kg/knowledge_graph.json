@@ -1154,5 +1154,214 @@
     "from": "Self-Inconsistency",
     "to": "Self-Consistent Rate (SCR)",
     "content": "Self-consistency is measured by the Self-Consistent Rate, defined as 1 - flipping probability q."
+  },
+  {
+    "name": "LLM-powered agents",
+    "type": "node",
+    "content": "Agents powered by Large Language Models that face challenges in long-term interactions due to contextual consistency and dynamic personalization limitations."
+  },
+  {
+    "name": "Memory OS",
+    "type": "node",
+    "content": "An existing external memory system for LLM agents, critiqued for its semantic grouping and retrieval approach which can overlook critical user information and introduce noise."
+  },
+  {
+    "name": "Agentic Memory",
+    "type": "node",
+    "content": "An existing memory system for LLM agents, critiqued alongside other systems for its retrieval methodology."
+  },
+  {
+    "name": "Mem0",
+    "type": "node",
+    "content": "An existing memory system for LLM agents, critiqued for its semantic retrieval approach. Used in a comparison table of design features."
+  },
+  {
+    "name": "O-Mem",
+    "type": "node",
+    "content": "A proposed human-centric memory framework based on active user profiling. It dynamically extracts and updates user persona and events, enabling hierarchical retrieval. It achieves state-of-the-art performance with high efficiency."
+  },
+  {
+    "name": "LoCoMo benchmark",
+    "type": "node",
+    "content": "A benchmark used to evaluate the performance of memory systems, including O-Mem's ablation study."
+  },
+  {
+    "name": "PERSONAMEM benchmark",
+    "type": "node",
+    "content": "A benchmark on which O-Mem demonstrated state-of-the-art performance."
+  },
+  {
+    "name": "Think-in-Memory (TiM)",
+    "type": "node",
+    "content": "An example of an external, plug-and-play memory enhancement framework for LLMs."
+  },
+  {
+    "name": "A-Mem",
+    "type": "node",
+    "content": "An example of an external memory system. Compared to O-Mem in a design feature table."
+  },
+  {
+    "name": "Grounded Memory",
+    "type": "node",
+    "content": "An example of an external memory enhancement framework for LLMs."
+  },
+  {
+    "name": "MemoryBank",
+    "type": "node",
+    "content": "An example of an external memory enhancement framework for LLMs."
+  },
+  {
+    "name": "MemGPT",
+    "type": "node",
+    "content": "An example of an external memory enhancement framework for LLMs."
+  },
+  {
+    "name": "Persona Memory",
+    "type": "node",
+    "content": "A component of O-Mem that stores long-term user attributes and event facts for personality modeling. Updated via LLM-based extraction and clustering."
+  },
+  {
+    "name": "Working Memory",
+    "type": "node",
+    "content": "A component of O-Mem that maintains a dynamic topic-to-interaction index for ensuring topical continuity in conversations."
+  },
+  {
+    "name": "Episodic Memory",
+    "type": "node",
+    "content": "A component of O-Mem that maintains an associative keyword-to-interaction index for clue-triggered recall of past interactions."
+  },
+  {
+    "name": "Personalized Deep Research Bench",
+    "type": "node",
+    "content": "A benchmark used to evaluate the impact of persona attributes on O-Mem's performance and efficiency."
+  },
+  {
+    "name": "LangMem",
+    "type": "node",
+    "content": "A memory system used as a baseline for efficiency comparison. O-Mem reduces token consumption by 94% and latency by 80% compared to it."
+  },
+  {
+    "name": "RAG",
+    "type": "node",
+    "content": "Retrieval-Augmented Generation, a baseline method compared to O-Mem. O-Mem achieves slightly higher performance with significantly lower resource cost."
+  },
+  {
+    "name": "critiques",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "Memory OS",
+    "content": "Identifies limitations in existing frameworks like Memory OS, specifically their semantic grouping/retrieval which can overlook critical info and introduce noise."
+  },
+  {
+    "name": "proposes",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "human-centric memory framework",
+    "content": "Proposes a novel framework based on active user profiling to address limitations of existing systems."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "LoCoMo benchmark",
+    "content": "Experimental results, including an ablation study, show O-Mem's performance on this benchmark."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "PERSONAMEM benchmark",
+    "content": "Achieves state-of-the-art performance on this benchmark."
+  },
+  {
+    "name": "classifies",
+    "type": "edge",
+    "from": "Related Work",
+    "to": "external memory systems",
+    "content": "Critiques existing frameworks, classifying them into categories like fine-tuning and external memory systems, highlighting the plug-and-play advantage of external systems."
+  },
+  {
+    "name": "contrasts with",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "prior chunk-retrieval mechanisms",
+    "content": "O-Mem's goal of active user profiling ('What kind of person is this user?') is contrasted with prior mechanisms focused on chunk retrieval."
+  },
+  {
+    "name": "composed of",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "Persona Memory",
+    "content": "O-Mem's architecture includes Persona Memory as one of its three core components."
+  },
+  {
+    "name": "composed of",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "Working Memory",
+    "content": "O-Mem's architecture includes Working Memory as one of its three core components."
+  },
+  {
+    "name": "composed of",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "Episodic Memory",
+    "content": "O-Mem's architecture includes Episodic Memory as one of its three core components."
+  },
+  {
+    "name": "employs",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "parallel retrieval strategy",
+    "content": "O-Mem retrieves information concurrently across its three memory components (persona, working, episodic)."
+  },
+  {
+    "name": "uses for response",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "LLM",
+    "content": "Aggregated information from memory retrieval is processed by a Language Model for final response generation."
+  },
+  {
+    "name": "ablation study on",
+    "type": "edge",
+    "from": "Experiment",
+    "to": "O-Mem components",
+    "content": "An ablation study on the LoCoMo benchmark evaluates the contribution of each memory component (WM, EM, PM) to overall performance."
+  },
+  {
+    "name": "evaluated on",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "Personalized Deep Research Bench",
+    "content": "Used to evaluate the role of persona attributes, showing their removal causes a performance drop and efficiency loss."
+  },
+  {
+    "name": "compared to",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "RAG",
+    "content": "In a discussion comparison, O-Mem achieves slightly higher F1 with substantially lower token cost, memory overhead, and latency than direct RAG over raw interactions."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "LangMem",
+    "content": "O-Mem reduces token consumption by 94% and latency by 80% compared to LangMem while achieving higher F1 score."
+  },
+  {
+    "name": "outperforms",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "MemoryOS",
+    "content": "O-Mem reduces inference latency by 34% compared to MemoryOS."
+  },
+  {
+    "name": "enables",
+    "type": "edge",
+    "from": "O-Mem",
+    "to": "coherent, contextually appropriate responses",
+    "content": "The framework's design enables the generation of coherent and personalized responses in long-term human-AI interaction."
   }
 ]
