@@ -7,17 +7,20 @@ import os
 import json
 import random
 import asyncio
+from difflib import SequenceMatcher
 
 
-from upload_script import handle_upload
+from agent.utils.upload_script import handle_upload
+from agent.utils.load_pdf import Paper
 from agent.llm import LLM
+from agent.sparse_retriever import sparse_retrieve
 
 app = FastAPI()
 
 # Enable CORS so your frontend can talk to this backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -28,6 +31,35 @@ FILES_DIR = "files"
 # Ensure the directory exists
 if not os.path.exists(FILES_DIR):
     os.makedirs(FILES_DIR)
+
+
+def find_best_matching_pdf(paper_name: str) -> str | None:
+    """Find the most relevant PDF file in FILES_DIR that matches the given paper_name."""
+    if not os.path.exists(FILES_DIR):
+        return None
+
+    pdf_files = [f for f in os.listdir(FILES_DIR) if f.endswith('.pdf')]
+    if not pdf_files:
+        return None
+
+    # Try exact match first (without .pdf extension)
+    exact_match = f"{paper_name}.pdf"
+    if exact_match in pdf_files:
+        return os.path.join(FILES_DIR, exact_match)
+
+    # Fuzzy match: find the file whose name (without .pdf) has the highest similarity ratio
+    best_match = max(
+        pdf_files,
+        key=lambda f: SequenceMatcher(None, paper_name, f.replace('.pdf', '')).ratio(),
+    )
+    ratio = SequenceMatcher(None, paper_name, best_match.replace('.pdf', '')).ratio()
+
+    # Only accept matches with reasonable similarity (threshold 0.3 to be lenient)
+    if ratio >= 0.3:
+        return os.path.join(FILES_DIR, best_match)
+
+    # If no good match found but files exist, return the best one anyway
+    return os.path.join(FILES_DIR, best_match)
 
 
 
@@ -106,6 +138,27 @@ async def chat(request: ChatRequest):
         system_prompt = "You are an academic research assistant. Help users understand research papers."
         if request.paper_name != "none":
             system_prompt += f" The user is currently reading the paper: {request.paper_name}"
+            
+
+            path_to_file = find_best_matching_pdf(request.paper_name)
+            if path_to_file is None:
+                raise HTTPException(status_code=404, detail=f"No PDF files found in {FILES_DIR}")
+            
+
+            paper = Paper(path_to_file)
+            pages = paper.get_pages()
+
+            chunks = []
+            for idx in range(0, len(pages)-2):
+                chunk = " ".join(pages[idx:idx+3]) # type: ignore
+                chunks.append(chunk)
+
+            query = request.message
+            retrieved_doc = sparse_retrieve(chunks, query, top_k=1)
+            
+            if retrieved_doc:
+                system_prompt += f"\n\n--- Retrieved Context ---\n{retrieved_doc}\n--- End of Context ---\nUse the above context to answer accurately."
+                print("Retrieved context added to system prompt:{}".format(retrieved_doc))
 
         response = llm_client.chat([
             {"role": "system", "content": system_prompt},

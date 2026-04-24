@@ -1363,5 +1363,274 @@
     "from": "O-Mem",
     "to": "coherent, contextually appropriate responses",
     "content": "The framework's design enables the generation of coherent and personalized responses in long-term human-AI interaction."
+  },
+  {
+    "name": "Livia",
+    "type": "node",
+    "content": "An emotion-aware AR companion designed to address loneliness through advanced affective computing, modular multi-agent architectures, efficient memory management, and interactive AR experiences."
+  },
+  {
+    "name": "Replika",
+    "type": "node",
+    "content": "An AI companion cited as having potential for emotional support but with limitations in empathy, personalization, long-term memory, and multimodal emotion detection."
+  },
+  {
+    "name": "Modular AI Architecture",
+    "type": "node",
+    "content": "Livia's backend multi-agent system with four specialized modules for robustness and scalability, integrated with an AR frontend."
+  },
+  {
+    "name": "Emotion Analyzer Agent",
+    "type": "node",
+    "content": "A specialized module that monitors user emotional state using multimodal data (text and voice) and stores emotional states in shared memory."
+  },
+  {
+    "name": "Frontend Voice Interaction Agent",
+    "type": "node",
+    "content": "A GPT-4-based model that generates personalized conversational responses, adapted for emotional tone and style, outputting text with metadata for the AR frontend."
+  },
+  {
+    "name": "Memory Compression Agent",
+    "type": "node",
+    "content": "A module that maintains long-term interaction data and implements novel algorithms (TBC and DIMF) for efficient memory management."
+  },
+  {
+    "name": "Behavior Orchestration Agent",
+    "type": "node",
+    "content": "The central meta-agent that coordinates information flow and agent interactions using a hybrid model of explicit rules and reinforcement learning."
+  },
+  {
+    "name": "Progressive Memory Compression",
+    "type": "node",
+    "content": "Livia's advanced long-term memory handling via two novel algorithms, TBC and DIMF, designed to ensure scalability and personalization."
+  },
+  {
+    "name": "Temporal Binary Compression (TBC)",
+    "type": "node",
+    "content": "An algorithm that compresses memory based on temporal intervals to emulate memory decay, retaining recent details while condensing older memories."
+  },
+  {
+    "name": "Dynamic Importance Memory Filter (DIMF)",
+    "type": "node",
+    "content": "An algorithm that dynamically manages memory by evaluating and filtering content based on emotional and contextual importance."
+  },
+  {
+    "name": "Emotion-Aware Engagement System",
+    "type": "node",
+    "content": "A system that proactively supports users by continuously monitoring emotional state and initiating contextually appropriate interactions."
+  },
+  {
+    "name": "AR-Driven Embodied Interaction",
+    "type": "node",
+    "content": "The use of augmented reality to create immersive interactions, embedding Livia as a lifelike companion in the user's physical space."
+  },
+  {
+    "name": "Personality Element Matching",
+    "type": "node",
+    "content": "The incorporation of three distinct personality elements (Fire, Water, Earth) with customized visual and voice characteristics for user selection."
+  },
+  {
+    "name": "Evaluation",
+    "type": "node",
+    "content": "The assessment of Livia addressing quantitative performance (AI task accuracy, memory compression) and qualitative feedback (user perception)."
+  },
+  {
+    "name": "Ethical Considerations",
+    "type": "node",
+    "content": "Risks and design philosophies concerning emotional reliance, deskilling, inclusivity, and the need to strengthen, not replace, human connections."
+  },
+  {
+    "name": "Real-world Deployment Challenges",
+    "type": "node",
+    "content": "Technical hurdles (battery, computation) and privacy concerns related to deploying Livia, with proposed solutions like efficient algorithms and encryption."
+  },
+  {
+    "name": "designed to address",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Replika",
+    "content": "Livia is presented as a system designed to address the limitations (empathy, personalization, memory, emotion detection) identified in AI companions like Replika."
+  },
+  {
+    "name": "incorporates",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Modular AI Architecture",
+    "content": "Livia's core design includes a modular AI architecture for robustness and scalability."
+  },
+  {
+    "name": "incorporates",
+    "type": "edge",
+    "from": "Livia",
+    "to": "AR-Driven Embodied Interaction",
+    "content": "Livia integrates augmented reality to create immersive, embodied interactions."
+  },
+  {
+    "name": "incorporates",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Emotion-Aware Engagement System",
+    "content": "Livia features a system for proactive, emotion-aware user engagement."
+  },
+  {
+    "name": "incorporates",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Progressive Memory Compression",
+    "content": "Livia implements advanced memory handling via progressive compression algorithms."
+  },
+  {
+    "name": "incorporates",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Personality Element Matching",
+    "content": "Livia includes a system for personalizing interactions through selectable personality elements."
+  },
+  {
+    "name": "addresses",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Ethical Considerations",
+    "content": "Livia's design philosophy explicitly addresses ethical risks like dependency and encourages human relationships."
+  },
+  {
+    "name": "faces",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Real-world Deployment Challenges",
+    "content": "The deployment of Livia involves overcoming technical and privacy challenges."
+  },
+  {
+    "name": "evaluated by",
+    "type": "edge",
+    "from": "Livia",
+    "to": "Evaluation",
+    "content": "Livia's performance and user perception are assessed through quantitative and qualitative evaluation."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Modular AI Architecture",
+    "to": "Emotion Analyzer Agent",
+    "content": "The modular architecture includes the Emotion Analyzer Agent as one of its four specialized modules."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Modular AI Architecture",
+    "to": "Frontend Voice Interaction Agent",
+    "content": "The modular architecture includes the Frontend Voice Interaction Agent as one of its four specialized modules."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Modular AI Architecture",
+    "to": "Memory Compression Agent",
+    "content": "The modular architecture includes the Memory Compression Agent as one of its four specialized modules."
+  },
+  {
+    "name": "consists of",
+    "type": "edge",
+    "from": "Modular AI Architecture",
+    "to": "Behavior Orchestration Agent",
+    "content": "The modular architecture includes the Behavior Orchestration Agent as the central coordinator."
+  },
+  {
+    "name": "implements",
+    "type": "edge",
+    "from": "Memory Compression Agent",
+    "to": "Temporal Binary Compression (TBC)",
+    "content": "The Memory Compression Agent uses the TBC algorithm for hierarchical compression based on time."
+  },
+  {
+    "name": "implements",
+    "type": "edge",
+    "from": "Memory Compression Agent",
+    "to": "Dynamic Importance Memory Filter (DIMF)",
+    "content": "The Memory Compression Agent uses the DIMF algorithm for importance-based memory filtering."
+  },
+  {
+    "name": "coordinates",
+    "type": "edge",
+    "from": "Behavior Orchestration Agent",
+    "to": "Emotion Analyzer Agent",
+    "content": "The Behavior Orchestration Agent coordinates the flow of information and interactions involving the Emotion Analyzer Agent."
+  },
+  {
+    "name": "coordinates",
+    "type": "edge",
+    "from": "Behavior Orchestration Agent",
+    "to": "Frontend Voice Interaction Agent",
+    "content": "The Behavior Orchestration Agent coordinates the flow of information and interactions involving the Frontend Voice Interaction Agent."
+  },
+  {
+    "name": "coordinates",
+    "type": "edge",
+    "from": "Behavior Orchestration Agent",
+    "to": "Memory Compression Agent",
+    "content": "The Behavior Orchestration Agent coordinates the flow of information and interactions involving the Memory Compression Agent."
+  },
+  {
+    "name": "uses data from",
+    "type": "edge",
+    "from": "Frontend Voice Interaction Agent",
+    "to": "Emotion Analyzer Agent",
+    "content": "The Voice Interaction Agent synthesizes contextual inputs including the user's emotional state provided by the Emotion Analyzer."
+  },
+  {
+    "name": "uses data from",
+    "type": "edge",
+    "from": "Frontend Voice Interaction Agent",
+    "to": "Memory Compression Agent",
+    "content": "The Voice Interaction Agent synthesizes contextual inputs including memory data provided by the Memory Compression Agent."
+  },
+  {
+    "name": "feeds data to",
+    "type": "edge",
+    "from": "Emotion Analyzer Agent",
+    "to": "Emotion-Aware Engagement System",
+    "content": "The Emotion Analyzer provides the multimodal emotional state data that the Engagement System uses for proactive support."
+  },
+  {
+    "name": "managed by",
+    "type": "edge",
+    "from": "Progressive Memory Compression",
+    "to": "Temporal Binary Compression (TBC)",
+    "content": "Progressive memory handling is achieved in part through the TBC algorithm."
+  },
+  {
+    "name": "managed by",
+    "type": "edge",
+    "from": "Progressive Memory Compression",
+    "to": "Dynamic Importance Memory Filter (DIMF)",
+    "content": "Progressive memory handling is achieved in part through the DIMF algorithm."
+  },
+  {
+    "name": "integrated with",
+    "type": "edge",
+    "from": "AR-Driven Embodied Interaction",
+    "to": "Personality Element Matching",
+    "content": "The AR interaction system visualizes and voices the user-selected personality elements (Fire, Water, Earth)."
+  },
+  {
+    "name": "informs",
+    "type": "edge",
+    "from": "Evaluation",
+    "to": "Emotion Analyzer Agent",
+    "content": "The evaluation assessed the accuracy of emotion recognition, a core function of the Emotion Analyzer Agent."
+  },
+  {
+    "name": "informs",
+    "type": "edge",
+    "from": "Evaluation",
+    "to": "Progressive Memory Compression",
+    "content": "The evaluation assessed the effectiveness of memory compression in reducing storage while maintaining recall."
+  },
+  {
+    "name": "informs",
+    "type": "edge",
+    "from": "Evaluation",
+    "to": "AR-Driven Embodied Interaction",
+    "content": "The evaluation gathered qualitative feedback on the perceived empathy and realism of the AR rendering."
   }
 ]
